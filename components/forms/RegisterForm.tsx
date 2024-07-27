@@ -68,6 +68,8 @@ const RegisterForm = ({ user }: { user: User }) => {
       // @ts-ignore
       const patient = await registerPatient(patientData);
 
+      console.log(patient);
+
       if (patient) router.push(`/patients/${user.$id}/new-appointment`);
     } catch (error) {
       console.log("An error occurred", error);
@@ -263,7 +265,7 @@ const RegisterForm = ({ user }: { user: User }) => {
           <CustomFormField
             fieldType={FormFieldType.TEXTAREA}
             control={form.control}
-            name="passMedicalHistory"
+            name="pastMedicalHistory"
             label="Pass Medical History"
             placeholder="Appendectomy"
           />
@@ -314,19 +316,19 @@ const RegisterForm = ({ user }: { user: User }) => {
         </section>
 
         <CustomFormField
-          fieldType={FormFieldType.CHEKBOX}
+          fieldType={FormFieldType.CHECKBOX}
           control={form.control}
           name="treatmentConsent"
           label="I consent to treatment"
         />
         <CustomFormField
-          fieldType={FormFieldType.CHEKBOX}
+          fieldType={FormFieldType.CHECKBOX}
           control={form.control}
           name="disclosureConsent"
           label="I consent to disclosure of information"
         />
         <CustomFormField
-          fieldType={FormFieldType.CHEKBOX}
+          fieldType={FormFieldType.CHECKBOX}
           control={form.control}
           name="privacyConsent"
           label="I consent to privacy policy"
